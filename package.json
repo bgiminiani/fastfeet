@@ -5,8 +5,8 @@
   "author": "Bruno Giminiani <giminiani@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "debug": "nodemon --inspect src/app.js"
+    "dev": "nodemon src/server.js",
+    "debug": "nodemon --inspect src/server.js"
   },
   "dependencies": {
     "express": "^4.17.1"

@@ -1,9 +1,14 @@
 import express from 'express';
 
-const app = express();
+class App {
+  constructor() {
+    this.server = express();
+    this.routes();
+  }
 
-app.get('/', (req, res) => res.json({ is_it_working: true }));
+  routes() {
+    this.server.get('/', (req, res) => res.json({ working: true }));
+  }
+}
 
-app.listen(3333);
-
-
+export default new App().server;
