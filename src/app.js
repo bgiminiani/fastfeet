@@ -1,4 +1,5 @@
 import express from 'express';
+import routes from './routes';
 
 class App {
   constructor() {
@@ -7,7 +8,7 @@ class App {
   }
 
   routes() {
-    this.server.get('/', (req, res) => res.json({ working: true }));
+    this.server.use(routes);
   }
 }
 
