@@ -5,12 +5,14 @@
   "author": "Bruno Giminiani <giminiani@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "debug": "nodemon --inspect src/app.js"
   },
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "sucrase": "^3.12.1"
   }
 }
