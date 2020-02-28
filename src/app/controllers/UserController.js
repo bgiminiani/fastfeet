@@ -16,6 +16,12 @@ class UserController {
       admin,
     });
   }
+
+  async update(req, res) {
+    return res.json({
+      middlewareTest: `Pass if user is logged with his id: ${req.userId}`,
+    });
+  }
 }
 
 export default new UserController();
