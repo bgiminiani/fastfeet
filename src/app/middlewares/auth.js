@@ -7,7 +7,7 @@ export default async (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
-    res.status(401).json({ error: 'Token not provide.' });
+    return res.status(401).json({ error: 'Token not provide.' });
   }
 
   const [, token] = authorization.split(' ');
