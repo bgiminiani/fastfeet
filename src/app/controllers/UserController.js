@@ -18,8 +18,29 @@ class UserController {
   }
 
   async update(req, res) {
+    const { email, oldPassword } = req.body;
+
+    const user = await User.findByPk(req.userId);
+
+    if (email && email !== user.email) {
+      const userExists = await User.findOne({ where: { email } });
+      if (userExists) {
+        return res.status(400).json({ error: 'User already exists.' });
+      }
+    }
+
+    if (oldPassword && !(await user.checkPassword(oldPassword))) {
+      return res.status(401).json({ error: 'Password does not match.' });
+    }
+
+    const { id, name, admin } = await user.update(req.body, {
+      where: { id: req.userId },
+    });
     return res.json({
-      middlewareTest: `Pass if user is logged with his id: ${req.userId}`,
+      id,
+      name,
+      email,
+      admin,
     });
   }
 }
