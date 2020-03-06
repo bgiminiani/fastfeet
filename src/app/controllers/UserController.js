@@ -42,7 +42,7 @@ class UserController {
         .string()
         .min(6)
         .when('oldPassword', (oldPassword, field) =>
-          oldPassword ? field.required() : field
+          oldPassword ? field : field.required().oneOf([yup.ref('oldPassword')])
         ),
       confirmPassword: yup
         .string()
